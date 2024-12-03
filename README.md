@@ -4,6 +4,10 @@
 
 *Welcome to YouTube React App, a sleek React-based application that lets you search, explore, and play your favorite YouTube videos without leaving the page! Powered by the YouTube Data API and sprinkled with modern features like voice search, this app is your go-to platform for a seamless YouTube experience.*
 
+## *🤩Preview*
+
+### *https://sujan2332.github.io/Youtube-Reactjs/*
+
 ## *✨ Features*
 
 *🔍 Search Functionality: Find videos with a keyword, with results loading dynamically.
@@ -82,6 +86,7 @@ npm start
 *Want to make this app even better? Feel free to fork the repo and submit a pull request!*
 
 *Enjoy the app and let your YouTube journey begin! ✨*
+
 *Made with ❤️ by Sujan2332*
 
 # *📜 License*
