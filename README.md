@@ -79,11 +79,11 @@ npm start
 
 *http://localhost:5173*
 
-### *💡 Fun Fact*
+## *💡 Fun Fact*
 
 *The app is smart enough to recognize your voice input, ensuring even the craziest queries (like "piano-playing cats") fetch instant results. 🎶🐱*
 
-### *🤝 Contributions*
+## *🤝 Contributions*
 
 *Want to make this app even better? Feel free to fork the repo and submit a pull request!*
 
