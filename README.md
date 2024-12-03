@@ -19,9 +19,11 @@
 
 ## *🛠️ Tech Stack*
 
-*Frontend: React.js
-API: YouTube Data API v3
-CSS: Custom styling for that extra ✨*
+*Frontend: React.js*
+
+*API: YouTube Data API v3*
+
+*CSS: Custom styling for that extra ✨*
 
 # *📂 File Structure*
 
