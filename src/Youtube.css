@@ -74,7 +74,6 @@ img {
     margin-left: -340px;
 }
 .navbar{
-    /* border: 2px solid red; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -151,3 +150,130 @@ padding: 12px 15px;
     animation: fadeIn 1s ease-in forwards; /* Fade-in animation */
     animation-delay: 2s; /* Delay of 2 seconds */
 }
+
+.content h5{
+    /* position: fixed; */
+    right: 0;
+}
+
+strong{
+    color: red;
+    margin-right: 10px;
+}
+
+.content{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items:left;
+    /* border: 2px solid red; */
+}
+.content h2{
+    font-size: 30px;
+    /* margin: 0px   */
+}
+.content h3{
+    border: 2px solid red;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 10px;
+    border-radius: 15px;
+    margin: 10px;
+}
+.date{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+svg{
+    pointer-events: none;
+    display: inherit;
+    width: 100%;
+    height: 100%;
+  }
+  .delayed-message {
+    text-align: center;
+    width: 1486px;
+    margin-left: 40px;
+  }
+  .welcome {
+    text-align: center;
+    width: 1486px;
+    /* border: 2px solid red; */
+  }
+
+@media  (max-width: 768px) {
+    iframe {
+      width:100%;
+      /* height:auto; */
+      height: 290px;
+    }
+    .content{
+    }
+    .content h2{
+        font-size: 20px;
+        text-align: center;
+    }
+    .date{
+        display: flex;
+        flex-direction: column;
+    }
+    .content h3{
+        font-size: 15px;
+    }
+    .content h4{
+        font-size: 15px;
+        text-align: center;
+        text-align: justify;
+        margin-left: 15px;
+    }
+    .date{
+        /* border: 2px solid red; */
+        display: flex;
+        align-items: start;
+        justify-content: start;
+        }
+        .navbar{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 10px 20px;
+            /* width: 100%; */
+            /* gap: 380px; */
+            margin-top: 10px;
+            gap: 10px;
+        }
+        svg{
+            font-size: 200px;
+            /* border: 2px solid red; */
+            margin: 0px;
+            height: 50px;
+            width: 100px;
+        }
+        form{
+            width: 100%;
+            margin: 0px;
+            text-align: center;
+        }
+        form input{
+            width: 100%;
+            margin: 0px;
+        }
+        .mic-button{
+            margin: 0px;
+            margin-top: 10px;
+        }
+        .fa-microphone{
+            text-align: center;
+            margin: 0px;
+        }
+        .delayed-message{
+            margin: 0px;
+            /* border: 2px solid red; */
+            width: 100%;
+        }
+  }  

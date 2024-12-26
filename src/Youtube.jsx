@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { formatDistanceToNow } from 'date-fns';
 // import "./Youtube1.css";
 import "./Youtube.css"
 
@@ -10,9 +11,11 @@ const YouTubeSearch = () => {
     const [hasSearched, setHasSearched] = useState(false);
     const [isListening,setIsListening] = useState(false)
     const [inputValue,setInputValue] = useState("")
+    const [video,setVideo]= useState(null)
     const API_KEY = import.meta.env.VITE_API_KEY;
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
     const recognition = new SpeechRecognition()
+    console.log("selcted video",video)
     useEffect(() => {
         const fetchVideos = async () => {
             if (!query) return; // Avoid fetching if query is empty
@@ -44,9 +47,29 @@ const YouTubeSearch = () => {
         setSelectedVideo(null); // Reset selected video when searching
     };
 
-    const handleVideoClick = (videoId) => {
-        setSelectedVideo(videoId); // Set the clicked video ID to state
-    };
+    const handleVideoClick = async (videoId) => {
+      setSelectedVideo(videoId); // Set the clicked video ID to state
+      
+      // Construct the API URL to fetch details of the specific video by ID
+      const api = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${API_KEY}`;
+      
+      console.log("Fetching video data from API:", api); // Optional log for debugging
+      
+      try {
+        // Fetch video details using the correct API endpoint
+        const response = await fetch(api);
+        const data = await response.json();
+        
+        // If the response contains video items, set them in state
+        if (data.items && data.items.length > 0) {
+          setVideo(data.items); // Assuming you want to display the selected video details
+        } else {
+          console.log("No video found with the given ID.");
+        }
+      } catch (err) {
+        console.error("Error fetching video data:", err);
+      }
+    };    
 
     const toggleListening = () => {
         if (isListening) {
@@ -82,11 +105,12 @@ const YouTubeSearch = () => {
         setSelectedVideo(null)
       };
       
+      
     return (
         <div className='captain'>
             <div className='navbar'>
             <div className="logo" style={{ width: '7.5%', height: '100%', display: 'block', fill: 'currentColor',cursor:"pointer"}} onClick={handleLogoClick} class="st-current">
-                <svg xmlns="http://www.w3.org/2000/svg" id="yt-logo-updated-svg_yt14" class="external-icon" viewBox="0 0 90 20" focusable="false" aria-hidden="true" style={{ pointerEvents: 'none', display: 'inherit', width: '100%', height: '100%' }}>
+                <svg xmlns="http://www.w3.org/2000/svg" id="yt-logo-updated-svg_yt14" class="external-icon" viewBox="0 0 90 20" focusable="false" aria-hidden="true" >
   <svg id="yt-logo-updated_yt14" viewBox="0 0 90 20" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
     <g>
       <path d="M27.9727 3.12324C27.6435 1.89323 26.6768 0.926623 25.4468 0.597366C23.2197 2.24288e-07 14.285 0 14.285 0C14.285 0 5.35042 2.24288e-07 3.12323 0.597366C1.89323 0.926623 0.926623 1.89323 0.597366 3.12324C2.24288e-07 5.35042 0 10 0 10C0 10 2.24288e-07 14.6496 0.597366 16.8768C0.926623 18.1068 1.89323 19.0734 3.12323 19.4026C5.35042 20 14.285 20 14.285 20C14.285 20 23.2197 20 25.4468 19.4026C26.6768 19.0734 27.6435 18.1068 27.9727 16.8768C28.5701 14.6496 28.5701 10 28.5701 10C28.5701 10 28.5677 5.35042 27.9727 3.12324Z" fill="#FF0000"></path>
@@ -133,7 +157,17 @@ const YouTubeSearch = () => {
                         allowFullScreen
                         title="YouTube video player"
                     />
-                </div>
+                      {video && video.length>0 && (
+                        <div className='content' style={{textAlign:"left"}}>
+                          <div className='date'>
+                          <h3><strong>Channel : </strong> {video[0].snippet.channelTitle}</h3>
+                          <h4><strong>Published :</strong> {formatDistanceToNow(new Date(video[0].snippet.publishedAt))} ago</h4>
+                          </div>
+                        <h2><strong>Title : </strong> {video[0].snippet.title}</h2>
+                        <h4 style={{margin:"10px"}}><strong>Description : </strong> {video[0].snippet.description}</h4>
+                        </div>
+                      )}
+                    </div>
             ) : (
                 <ul>
   {Array.isArray(videos) && videos.length > 0 ? (
@@ -155,9 +189,9 @@ const YouTubeSearch = () => {
       </li>
     ))
   ) : hasSearched ? (
-    <p className="delayed-message" style={{ textAlign: "center", width: "1486px", marginLeft: "40px" }}>No videos found...</p>
+    <p className="delayed-message">No videos found...</p>
   ) : (
-    <h1 style={{ textAlign: "center", width: "1486px", marginLeft: "40px" }}>🌟Welcome Boss🌟</h1>
+    <h1 className='welcome'>🌟Welcome Boss🌟</h1>
   )}
 </ul>
 
