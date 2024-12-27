@@ -204,6 +204,14 @@ svg{
     width: 1486px;
     /* border: 2px solid red; */
   }
+  .logo {
+    width: 7.5%;
+    height: 100%;
+    display: block;
+    fill: currentColor;
+    cursor: pointer;
+  }
+  
 
 @media  (max-width: 768px) {
     iframe {
@@ -246,6 +254,8 @@ svg{
             /* gap: 380px; */
             margin-top: 10px;
             gap: 10px;
+            /* border: 2px solid red; */
+            margin-bottom: -22px;
         }
         svg{
             font-size: 200px;

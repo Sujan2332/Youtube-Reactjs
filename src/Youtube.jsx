@@ -109,7 +109,7 @@ const YouTubeSearch = () => {
     return (
         <div className='captain'>
             <div className='navbar'>
-            <div className="logo" style={{ width: '7.5%', height: '100%', display: 'block', fill: 'currentColor',cursor:"pointer"}} onClick={handleLogoClick} class="st-current">
+            <div className='logo' onClick={handleLogoClick} >
                 <svg xmlns="http://www.w3.org/2000/svg" id="yt-logo-updated-svg_yt14" class="external-icon" viewBox="0 0 90 20" focusable="false" aria-hidden="true" >
   <svg id="yt-logo-updated_yt14" viewBox="0 0 90 20" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
     <g>
